@@ -56,6 +56,11 @@ Instalar con pip:
 $py manage.py runserver
 
 para trabajar con el bot se ingresaria a concesion/bot
+
+http://127.0.0.1:8000/concesion/bot
+http://127.0.0.1:8000/dashboard/
+http://127.0.0.1:8000/dashboard/jurisprudencia/
+
 para trabajar la tarea uno entraremos a dashboard
 
 bot
