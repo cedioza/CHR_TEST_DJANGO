@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda Ambiental de  Judicial</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+
+    {# Cargamos la librería #}
+    {% load bootstrap4 %}
+
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4">Búsqueda Judicial</h1>
+
+        <form method="post" class="form-inline justify-content-center mb-4">
+            {% csrf_token %}
+            <div class="form-group mx-sm-3">
+                <div class="input-group">
+                    <input type="text" class="form-control search-input"  name ="search_field" placeholder="Buscar">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                        <button type="button" class="btn btn-secondary" onclick="resetForm()">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="row forms-container">
+            <div class="col-md-6">
+                <form method="post" class="form-card">
+                    {% csrf_token %}
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="causa-input">Número de Causa:</label>
+                                <input type="text" class="form-control" id="causa-input" placeholder="Ingrese el número de causa">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            {% for form in forms %}
+            <div class="col-md-6">
+                <form method="post" class="form-card">
+                    {% csrf_token %}
+                    <div class="card">
+                        <div class="card-body">
+                            {{ form.as_p }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Síguenos en redes sociales</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.linkedin.com/in/cristiandioza-backend-python/" target="_blank"><i
+                                    class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com/cedioza" target="_blank"><i class="fab fa-github"></i>
+                                GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> Teléfono: +57 3012024979</p>
+                    <p><i class="fas fa-envelope"></i> Email: cedioza@gmail.com</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </footer>
+
+</body>
+
+
+{% bootstrap_javascript jquery='full' %}
+<script>
+    
+    function resetForm() {
+        document.getElementById("search-form").reset();
+    }
+</script>
+<script src="https://kit.fontawesome.com/564db7f4ae.js" crossorigin="anonymous"></script>
+</body>
+</html>

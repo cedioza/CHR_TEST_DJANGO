@@ -1,0 +1,34 @@
+/* Estilos personalizados */
+body {
+    background: linear-gradient(to bottom, #81c1d9, #4ca1af); /* Fondo degradado celeste */
+}
+
+.container {
+    margin-top: 50px; /* Margen superior para centrar verticalmente */
+}
+
+.forms-container {
+    margin-top: 25px; /* Margen superior entre los formularios */
+}
+
+.form-card {
+    background-color: #fff; /* Color de fondo del formulario */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin: 5px;
+}
+
+.footer {
+    background-color: #333; /* Color de fondo del footer */
+    color: #fff; /* Color del texto del footer */
+    padding: 10px 0; /* Espaciado interno en el footer */
+}
+
+.footer h4 {
+    color: #fff; /* Color del título del footer */
+}
+
+.footer a {
+    color: #fff; /* Color de los enlaces del footer */
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Jurisprudencia</title>
+    <style>
+        /* Estilos para la tabla */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos para la paginación */
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .pagination a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tipo de Causa</th>
+            <th>Rol</th>
+            <th>Carátula</th>
+            <th>Nombre de Proyecto</th>
+            <th>Fecha de Sentencia</th>
+            <th>Descriptores</th>
+            <th>Link de Sentencia</th>
+            <th>URL de Sentencia</th>
+            <th>Activo</th>
+            <th>Tribunal</th>
+            <th>Tipo</th>
+            <th>Relacionada</th>
+            <th>Visitas</th>
+        </tr>
+        {% for jurisprudencia in jurisprudencias %}
+        <tr>
+            <td>{{ jurisprudencia.id }}</td>
+            <td>{{ jurisprudencia.tipoCausa }}</td>
+            <td>{{ jurisprudencia.rol }}</td>
+            <td>{{ jurisprudencia.caratula }}</td>
+            <td>{{ jurisprudencia.nombreProyecto }}</td>
+            <td>{{ jurisprudencia.fechaSentencia }}</td>
+            <td>{{ jurisprudencia.descriptores }}</td>
+            <td>{{ jurisprudencia.linkSentencia }}</td>
+            <td>{{ jurisprudencia.urlSentencia }}</td>
+            <td>{{ jurisprudencia.activo }}</td>
+            <td>{{ jurisprudencia.tribunal }}</td>
+            <td>{{ jurisprudencia.tipo }}</td>
+            <td>{{ jurisprudencia.relacionada }}</td>
+            <td>{{ jurisprudencia.visitas }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="pagination">
+        {% if jurisprudencias.has_previous %}
+            <a href="?page={{ jurisprudencias.previous_page_number }}">Anterior</a>
+        {% endif %}
+        {% for i in jurisprudencias.paginator.page_range %}
+            {% if jurisprudencias.number == i %}
+                <a class="active" href="?page={{ i }}">{{ i }}</a>
+            {% else %}
+                <a href="?page={{ i }}">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+        {% if jurisprudencias.has_next %}
+            <a href="?page={{ jurisprudencias.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </div>
+</body>
+</html>
