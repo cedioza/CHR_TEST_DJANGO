@@ -1,11 +1,11 @@
-# Repositorio prueba técnica de SMART DATA en Python
+# Repositorio prueba tecnica CHKR 
 
 
 ### Librerías :
 - Django: [Documentación de Django](https://docs.djangoproject.com/)
-- Django REST Framework: [Documentación de Django REST Framework](https://www.django-rest-framework.org/)
-
-
+- Selenium: [Documentación de Selenium](https://www.selenium.dev//)
+- Request: [Documentación de requests k](https://pypi.org/project/requests/)
+- 
 
 
 
@@ -17,7 +17,7 @@ Sigue estos pasos para configurar el proyecto localmente:
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/cedioza/backned_smart_data.git
+git clone https://github.com/cedioza/CHR_TEST_DJANGO
 ```
 Crea y activa un entorno virtual:
 
